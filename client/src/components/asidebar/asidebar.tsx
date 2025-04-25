@@ -34,6 +34,7 @@ import { useAuthContext } from "@/context/auth-provider";
 
 const Asidebar = () => {
   const { isLoading, user } = useAuthContext();
+
   const { open } = useSidebar();
   const workspaceId = useWorkspaceId();
 
@@ -90,11 +91,9 @@ const Asidebar = () => {
                       </Avatar>
                       <div className="grid flex-1 text-left text-sm leading-tight">
                         <span className="truncate font-semibold">
-                        {user?.name}
+                          {user?.name}
                         </span>
-                        <span className="truncate text-xs">
-                        {user?.email}
-                        </span>
+                        <span className="truncate text-xs">{user?.email}</span>
                       </div>
                       <EllipsisIcon className="ml-auto size-4" />
                     </SidebarMenuButton>

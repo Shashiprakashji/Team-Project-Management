@@ -23,6 +23,7 @@ import Logo from "@/components/logo";
 import GoogleOauthButton from "@/components/auth/google-oauth-button";
 import { useMutation } from "@tanstack/react-query";
 import { loginMutationFn } from "@/lib/api";
+import { toast } from "@/hooks/use-toast";
 import { Loader } from "lucide-react";
 
 const SignIn = () => {
@@ -33,6 +34,7 @@ const SignIn = () => {
   const { mutate, isPending } = useMutation({
     mutationFn: loginMutationFn,
   });
+
   const formSchema = z.object({
     email: z.string().trim().email("Invalid email address").min(1, {
       message: "Workspace name is required",
@@ -153,10 +155,11 @@ const SignIn = () => {
                           )}
                         />
                       </div>
-                      <Button 
-                       disabled={isPending}
-                       type="submit"
-                       className="w-full">
+                      <Button
+                        disabled={isPending}
+                        type="submit"
+                        className="w-full"
+                      >
                         {isPending && <Loader className="animate-spin" />}
                         Login
                       </Button>

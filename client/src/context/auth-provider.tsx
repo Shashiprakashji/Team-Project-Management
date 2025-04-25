@@ -67,9 +67,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         user,
         workspace,
         hasPermission,
-        error: authError 
-        || workspaceError
-        ,
+        error: authError || workspaceError,
         isLoading,
         isFetching,
         workspaceLoading,

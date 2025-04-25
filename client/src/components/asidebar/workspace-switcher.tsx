@@ -37,8 +37,6 @@ export function WorkspaceSwitcher() {
 
   const [activeWorkspace, setActiveWorkspace] = React.useState<WorkspaceType>();
 
-  
-
   const { data, isPending } = useQuery({
     queryKey: ["userWorkspaces"],
     queryFn: getAllWorkspacesUserIsMemberQueryFn,
@@ -81,7 +79,7 @@ export function WorkspaceSwitcher() {
         <SidebarMenuItem>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
+              <SidebarMenuButton
                 size="lg"
                 className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground bg-gray-10"
               >
@@ -117,6 +115,7 @@ export function WorkspaceSwitcher() {
                 Workspaces
               </DropdownMenuLabel>
               {isPending ? <Loader className=" w-5 h-5 animate-spin" /> : null}
+
               {workspaces?.map((workspace) => (
                 <DropdownMenuItem
                   key={workspace._id}
